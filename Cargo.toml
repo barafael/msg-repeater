@@ -1,0 +1,13 @@
+[package]
+name = "msg-repeater"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+async-spawning = ["dep:tokio"]
+
+[dependencies]
+anyhow = "1.0.68"
+clap = { version = "4.1.1", features = ["derive"] }
+humantime = "2.1.0"
+tokio = { version = "1.24.1", features = ["full"], optional = true }
