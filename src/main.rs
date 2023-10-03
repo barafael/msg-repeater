@@ -53,6 +53,7 @@ async fn main() -> Result<()> {
         let delay = args.interval.into();
         tokio::task::spawn(async move {
             println!("Client {socket_addr} connected");
+            // TODO this loop is not time-accurate. Use a .tick().await instead of a sleep.
             while let Ok(()) = stream.write_all(&message).await {
                 tokio::time::sleep(delay).await;
             }
